@@ -16,7 +16,7 @@ import { toast } from "react-toastify";
 export function Profile() {
   const [label, setLabel] = useState("posts");
   const { username } = useParams();
-  const { state, dispatch } = useContext(DataContext);
+  const { state, dispatch, setLoader } = useContext(DataContext);
   const { user, setUser, token, setToken } = useContext(AuthContext);
   const [editProps, setEditProps] = useState({
     view: false,
@@ -55,16 +55,6 @@ export function Profile() {
       : followService(setUser, profileUser._id, token);
   };
   const avatars = [
-    "spiderman.png",
-    "woman.png",
-    "superman.png",
-    "shield.png",
-    "mother.png",
-    "avatar1.jpg",
-    "avatar2.jpg",
-    "avatar3.jpg",
-    "avatar4.jpg",
-    "7309681.jpg",
     "animal-track.png",
     "magician.png",
     "vampire.png",
@@ -76,6 +66,12 @@ export function Profile() {
   useEffect(() => {
     getAllUsers(dispatch);
   }, [user]);
+  useEffect(() => {
+    setLoader(true);
+    setTimeout(() => {
+      setLoader(false);
+    }, 2000);
+  }, []);
   return (
     <div className="home flex flex-col grow">
       <div

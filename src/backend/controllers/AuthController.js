@@ -37,7 +37,7 @@ export const signupHandler = function (schema, request) {
       username,
       password,
       ...rest,
-      avatarUrl: "/avatar/avatar4.jpg",
+      avatarUrl: "/avatar/magician.png",
       followers: [],
       following: [],
       bookmarks: [],

@@ -8,12 +8,19 @@ import { DataContext } from "../../context/DataContext";
 import { getMyPosts } from "../../utils/utils";
 import { AuthContext } from "../../context/AuthContext";
 import { MobileSuggestedUser } from "../../components/MobileSuggestedUser.jsx/MobileSuggestedUser";
+import { useEffect } from "react";
 
 export function Home() {
   const { user } = useContext(AuthContext);
-  const { state, dispatch } = useContext(DataContext);
+  const { state, dispatch, setLoader } = useContext(DataContext);
   const [sort, setSort] = useState("None");
   let temproryPosts = getMyPosts(user, sort, state.posts);
+  useEffect(() => {
+    setLoader(true);
+    setTimeout(() => {
+      setLoader(false);
+    }, 2000);
+  }, []);
   return (
     <div className="flex grow gap-4 justify-center mt-4">
       <div className="flex flex-col gap-4 w-screen  p-2 md:w-2/5  h-fit ">

@@ -12,10 +12,15 @@ import { Protection } from "./components/Protection/Protection";
 import { Skeleton } from "./components/Skeleton/Skeleton";
 import { BookMarks } from "./pages/Bookmarks/BookMarks";
 import { Slide, ToastContainer } from "react-toastify";
+import { Loader } from "./components/Loader/Loader";
+import { useContext } from "react";
+import { DataContext } from "./context/DataContext";
 
 function App() {
+  const { loader } = useContext(DataContext);
   return (
     <div>
+      {loader && <Loader />}
       <ToastContainer
         position="bottom-center"
         autoClose="1000"
