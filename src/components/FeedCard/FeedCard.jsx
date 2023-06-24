@@ -75,7 +75,6 @@ export function FeedCard({
                 <p
                   className="p-1 hover:bg-white hover:text-black rounded-md cursor-pointer"
                   onClick={() => {
-                    window.scroll({ top: 0 });
                     setOptions(!options);
                     dispatch({
                       type: "POST_MODAL",
@@ -160,8 +159,9 @@ export function FeedCard({
             color="#755bb4"
             onClick={() => {
               navigator.clipboard.writeText(
-                `https://bakingram.netlify.app/post/${post._id}`
+                `https:/buddies-connect.netlify.app/post/${post._id}`
               );
+              toast.success("Link Copied to Clipboard");
             }}
           />
         </div>
