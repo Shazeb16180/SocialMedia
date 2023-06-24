@@ -76,6 +76,7 @@ export function FeedCard({
                   className="p-1 hover:bg-white hover:text-black rounded-md cursor-pointer"
                   onClick={() => {
                     setOptions(!options);
+                    window.scrollTo(0, 0);
                     dispatch({
                       type: "POST_MODAL",
                       payload: {
