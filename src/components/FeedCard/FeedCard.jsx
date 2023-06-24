@@ -159,7 +159,7 @@ export function FeedCard({
             color="#755bb4"
             onClick={() => {
               navigator.clipboard.writeText(
-                `https:/buddies-connect.netlify.app/post/${post._id}`
+                `https:/buddies-connect.netlify.app/post/${_id}`
               );
               toast.success("Link Copied to Clipboard");
             }}

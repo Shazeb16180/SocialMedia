@@ -19,8 +19,8 @@ export function SuggestedUser() {
   return (
     <div className=" flex-col gap-4 p-4 h-96 overflow-y-auto overflow-x-hidden scroll-smooth  sticky top-24 hidden md:flex rounded-md border-2 border-primary">
       <h2 className="text-xl underline">Suggested Users</h2>
-      {unFollowers.map(({ _id, username, avatarUrl }) => (
-        <div className="flex flex-col p-2 shadow-md">
+      {unFollowers.map(({ _id, username, avatarUrl }, index) => (
+        <div key={index} className="flex flex-col p-2 shadow-md">
           <div className="flex  justify-between">
             <div
               onClick={() => navigate(`/profile/${username}`)}
