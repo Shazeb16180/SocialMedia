@@ -1,3 +1,5 @@
+import { useState, useEffect, useContext } from "react";
+import { useNavigate, useParams } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBookmark,
@@ -5,17 +7,11 @@ import {
   faUpload,
 } from "@fortawesome/free-solid-svg-icons";
 import { FeedCard } from "../../components/FeedCard/FeedCard";
-import { useNavigate, useParams } from "react-router";
-import { useContext } from "react";
 import { DataContext } from "../../context/DataContext";
-import { useEffect } from "react";
 import { editUser, getAllUsers } from "../../services/userService";
 import { AuthContext } from "../../context/AuthContext";
-import {
-  followService,
-  unFollowService,
-} from "../../services/followUnfollowService";
-import { useState } from "react";
+import { followService, unFollowService } from "../../services/userService";
+import { toast } from "react-toastify";
 
 export function Profile() {
   const [label, setLabel] = useState("posts");
@@ -50,7 +46,7 @@ export function Profile() {
           setToken("");
           dispatch({ type: "LOGOUT" });
           navigate("/");
-          console.log("Done");
+          toast.success("Logged Out");
         })()
       : user.following.find(
           ({ username: dbUserName }) => dbUserName === profileUser.username
@@ -69,11 +65,17 @@ export function Profile() {
     "avatar3.jpg",
     "avatar4.jpg",
     "7309681.jpg",
+    "animal-track.png",
+    "magician.png",
+    "vampire.png",
+    "vampire-2.png",
+    "vampire-3.png",
+    "wolf.png",
+    "wolf-2.png",
   ];
   useEffect(() => {
     getAllUsers(dispatch);
   }, [user]);
-  console.log("K", editProps);
   return (
     <div className="home flex flex-col grow">
       <div
@@ -98,7 +100,7 @@ export function Profile() {
               <div
                 className={`${
                   editProps.nestedView ? "flex" : "hidden"
-                } absolute  flex-wrap gap-4 top-10 left-8 bg-transparent w-48 border-2 border-black border-solid `}
+                } absolute  flex-wrap gap-4 top-10 left-8 bg-transparent w-48 rounded-md border-2 border-primary border-solid `}
               >
                 {avatars.map((url) => (
                   <img
@@ -194,7 +196,7 @@ export function Profile() {
             </button>
             <button
               onClick={() => {
-                editUser(setUser, editProps.tempUser, token);
+                editUser(setUser, editProps.tempUser, token, toast);
                 setEditProps({
                   view: false,
                   nestedView: false,
@@ -209,7 +211,7 @@ export function Profile() {
         </div>
       </div>
       <div className="flex grow gap-4 justify-center mt-4">
-        <div className="flex flex-col gap-4 w-screen  p-2 md:w-2/5  border-2 border-solid border-black h-fit ">
+        <div className="flex flex-col gap-4 w-screen  p-2 md:w-2/5  border-2 border-solid border-primary h-fit ">
           <div className=" flex justify-center h-40 bg-primary relative">
             <img
               src={profileUser.avatarUrl}

@@ -1,11 +1,12 @@
 import { useContext } from "react";
+import { useNavigate } from "react-router";
+import { toast } from "react-toastify";
 import { DataContext } from "../../context/DataContext";
 import { getAllUsers } from "../../services/userService";
 import { useEffect } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { getUnFollowedUsers } from "../../utils/utils";
-import { followService } from "../../services/followUnfollowService";
-import { useNavigate } from "react-router";
+import { followService } from "../../services/userService";
 
 export function SuggestedUser() {
   const { state, dispatch } = useContext(DataContext);
@@ -33,7 +34,7 @@ export function SuggestedUser() {
             </div>
             <button
               onClick={() => {
-                followService(setUser, _id, token);
+                followService(setUser, _id, token, toast);
               }}
               className="p-1 rounded-md bg-primary text-white"
             >

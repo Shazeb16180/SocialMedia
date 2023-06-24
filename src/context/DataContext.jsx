@@ -1,8 +1,8 @@
 import { useReducer } from "react";
 import { createContext } from "react";
-import { dataReducer, initalState } from "../reducer/DataReducer";
 import { useEffect } from "react";
 import { useContext } from "react";
+import { dataReducer, initalState } from "../reducer/DataReducer";
 import { AuthContext } from "./AuthContext";
 
 export const DataContext = createContext();

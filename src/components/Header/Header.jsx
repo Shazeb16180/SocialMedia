@@ -9,7 +9,6 @@ import { Account } from "../Account/Account";
 import { useNavigate } from "react-router";
 import { useContext, useState } from "react";
 import { DataContext } from "../../context/DataContext";
-import { data } from "autoprefixer";
 
 export function Header() {
   const navigate = useNavigate();

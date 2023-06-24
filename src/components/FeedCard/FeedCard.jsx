@@ -1,3 +1,6 @@
+import { useState } from "react";
+import { useNavigate } from "react-router";
+import { toast } from "react-toastify";
 import {
   faBookmark,
   faEllipsisV,
@@ -10,14 +13,12 @@ import {
   faBookmark as farBookmark,
 } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
-import { disLikePost, likePost } from "../../services/likeDislikeService";
+import { disLikePost, likePost } from "../../services/postService";
 import { useContext } from "react";
 import { DataContext } from "../../context/DataContext";
 import { AuthContext } from "../../context/AuthContext";
-import { addBookMark, removeBookMark } from "../../services/bookMarkService";
-import { deletePost } from "../../services/addEditPostService";
-import { useNavigate } from "react-router";
+import { addBookMark, removeBookMark } from "../../services/postService";
+import { deletePost } from "../../services/postService";
 
 export function FeedCard({
   _id,
@@ -36,12 +37,12 @@ export function FeedCard({
   const didIBookMarked = user.bookmarks.find((dbId) => _id === dbId);
   const likeHandler = () =>
     didILiked
-      ? disLikePost(dispatch, _id, token)
-      : likePost(dispatch, _id, token);
+      ? disLikePost(dispatch, _id, token, toast)
+      : likePost(dispatch, _id, token, toast);
   const bookMarkHandler = () =>
     didIBookMarked
-      ? removeBookMark(setUser, user, _id, token)
-      : addBookMark(setUser, user, _id, token);
+      ? removeBookMark(setUser, user, _id, token, toast)
+      : addBookMark(setUser, user, _id, token, toast);
   return (
     <div className="flex flex-col justify-between gap-4 shadow-md rounded-md p-4">
       <div className="flex">
@@ -100,7 +101,7 @@ export function FeedCard({
                   className="p-1 hover:bg-white hover:text-black rounded-md cursor-pointer"
                   onClick={() => {
                     setOptions(!options);
-                    deletePost(dispatch, _id, token);
+                    deletePost(dispatch, _id, token, toast);
                   }}
                 >
                   Delete

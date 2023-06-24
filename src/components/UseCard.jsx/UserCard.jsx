@@ -1,7 +1,6 @@
-import { useContext } from "react";
-import { followService } from "../../services/followUnfollowService";
-import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router";
+import { followService } from "../../services/userService";
+import { toast } from "react-toastify";
 
 export function UserCard({ _id, username, avatarUrl, token, setUser }) {
   const navigate = useNavigate();
@@ -20,7 +19,7 @@ export function UserCard({ _id, username, avatarUrl, token, setUser }) {
       </p>
       <button
         onClick={() => {
-          followService(setUser, _id, token);
+          followService(setUser, _id, token, toast);
         }}
         className="p-2 bg-primary text-white rounded-md hover:bg-black hover:text-white"
       >

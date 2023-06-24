@@ -1,13 +1,14 @@
 import "./Login.css";
-import { NavLink, useLocation } from "react-router-dom";
 import { useContext, useState } from "react";
+import { toast } from "react-toastify";
+import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
+
 export function Login() {
   const { loginUserHandler } = useContext(AuthContext);
   const [formData, setFormData] = useState({ userName: "", password: "" });
-  const location = useLocation();
   const loginHandler = ({ userName, password }) => {
-    loginUserHandler(userName, password, location?.state?.pathname || "/");
+    loginUserHandler(userName, password, toast);
   };
   return (
     <div className="login-container">
@@ -19,7 +20,7 @@ export function Login() {
           <div className="login-card-logo">
             <img src="images/login.svg" alt="Loading" />
           </div>
-          <h1>Login</h1>
+          <h1 className="text-3xl font-bold underline">Login</h1>
           <form
             onSubmit={(e) => {
               e.preventDefault();
@@ -27,7 +28,7 @@ export function Login() {
             }}
           >
             <div className="field">
-              <h3>User Name</h3>
+              <h3 className="font-semibold">User Name</h3>
               <input
                 placeholder="User Name"
                 required={true}
@@ -37,7 +38,7 @@ export function Login() {
               />
             </div>
             <div className="field">
-              <h3>Password</h3>
+              <h3 className="font-semibold">Password</h3>
               <input
                 placeholder="password"
                 type="password"

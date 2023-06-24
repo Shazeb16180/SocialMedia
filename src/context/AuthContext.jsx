@@ -1,7 +1,5 @@
-import { useContext } from "react";
 import { createContext, useState } from "react";
 import { useNavigate } from "react-router";
-import { DataContext } from "./DataContext";
 
 export const AuthContext = createContext();
 
@@ -11,7 +9,7 @@ export function AuthContextProvider({ children }) {
   const localStorageUser = JSON.parse(localStorage.getItem("user"));
   const [user, setUser] = useState(localStorageUser?.user);
   const navigate = useNavigate();
-  const loginUserHandler = async (userName, password, location) => {
+  const loginUserHandler = async (userName, password, toast) => {
     if (userName !== "" && password !== "") {
       try {
         const response = await fetch("/api/auth/login", {
@@ -31,14 +29,14 @@ export function AuthContextProvider({ children }) {
           setUser(foundUser);
           localStorage.setItem("user", JSON.stringify({ user: foundUser }));
           navigate("/");
-          console.log("Login Success");
+          toast.success("Logged  In");
         } else throw new Error(response.statusText);
       } catch (error) {
-        console.log("Login Error:" + error);
+        toast.error("Login Error:" + error);
       }
     }
   };
-  const signUpUserHandler = async (data) => {
+  const signUpUserHandler = async (data, toast) => {
     if (data !== undefined && data !== null) {
       try {
         const response = await fetch("/api/auth/signup", {
@@ -50,6 +48,7 @@ export function AuthContextProvider({ children }) {
         });
         if (response.status === 201) {
           navigate("/login");
+          toast.success("Signed Up");
         } else throw new Error(response.statusText);
       } catch (error) {
         console.log("Error in Sign Up" + error);
