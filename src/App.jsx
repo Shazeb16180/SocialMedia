@@ -45,7 +45,14 @@ function App() {
         >
           <Route index element={<Home />} />
           <Route path="/explore" element={<Home />} />
-          <Route path="/post/:postId" element={<Post />} />
+          <Route
+            path="/post/:postId"
+            element={
+              <Protection>
+                <Post />
+              </Protection>
+            }
+          />
           <Route path="/bookmarks" element={<BookMarks />} />
           <Route path="/profile/:username" element={<Profile />} />
         </Route>
