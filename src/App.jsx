@@ -53,8 +53,8 @@ function App() {
               </Protection>
             }
           />
-          <Route path="/bookmarks" element={<BookMarks />} />
-          <Route path="/profile/:username" element={<Profile />} />
+          <Route path="/bookmarks" element={<Protection><BookMarks /></Protection>} />
+          <Route path="/profile/:username" element={<Protection><Profile /></Protection>} />
         </Route>
         <Route path="/mock" element={<MockMan />} />
       </Routes>
