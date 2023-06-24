@@ -1,3 +1,5 @@
+import { useState, useEffect, useContext } from "react";
+import { useNavigate, useParams } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBookmark,
@@ -5,17 +7,10 @@ import {
   faUpload,
 } from "@fortawesome/free-solid-svg-icons";
 import { FeedCard } from "../../components/FeedCard/FeedCard";
-import { useNavigate, useParams } from "react-router";
-import { useContext } from "react";
 import { DataContext } from "../../context/DataContext";
-import { useEffect } from "react";
 import { editUser, getAllUsers } from "../../services/userService";
 import { AuthContext } from "../../context/AuthContext";
-import {
-  followService,
-  unFollowService,
-} from "../../services/followUnfollowService";
-import { useState } from "react";
+import { followService, unFollowService } from "../../services/userService";
 
 export function Profile() {
   const [label, setLabel] = useState("posts");

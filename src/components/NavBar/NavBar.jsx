@@ -1,5 +1,5 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./NavBar.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBookBookmark,
   faCompass,

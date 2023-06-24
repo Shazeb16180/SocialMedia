@@ -4,7 +4,7 @@ import { getAllUsers } from "../../services/userService";
 import { useEffect } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { getUnFollowedUsers } from "../../utils/utils";
-import { followService } from "../../services/followUnfollowService";
+import { followService } from "../../services/userService";
 import { useNavigate } from "react-router";
 
 export function SuggestedUser() {

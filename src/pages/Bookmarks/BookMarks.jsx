@@ -1,14 +1,7 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
-import { FeedCard } from "../../components/FeedCard/FeedCard";
-import { SuggestedUser } from "../../components/SuggestedUser/SuggestedUser";
-import { UserCard } from "../../components/UseCard.jsx/UserCard";
 import { useContext } from "react";
+import { FeedCard } from "../../components/FeedCard/FeedCard";
 import { DataContext } from "../../context/DataContext";
-import { useState } from "react";
-import { getMyPosts } from "../../utils/utils";
 import { AuthContext } from "../../context/AuthContext";
-import { MobileSuggestedUser } from "../../components/MobileSuggestedUser.jsx/MobileSuggestedUser";
 
 export function BookMarks() {
   const { user } = useContext(AuthContext);

@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext } from "react";
 import { DataContext } from "../../context/DataContext";
 import { useState } from "react";
-import { addPost, editPost } from "../../services/addEditPostService";
+import { addPost, editPost } from "../../services/postService";
 import { AuthContext } from "../../context/AuthContext";
 
 export function NewPost() {

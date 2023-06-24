@@ -19,7 +19,7 @@ export function Login() {
           <div className="login-card-logo">
             <img src="images/login.svg" alt="Loading" />
           </div>
-          <h1>Login</h1>
+          <h1 className="text-3xl font-bold underline">Login</h1>
           <form
             onSubmit={(e) => {
               e.preventDefault();
@@ -27,7 +27,7 @@ export function Login() {
             }}
           >
             <div className="field">
-              <h3>User Name</h3>
+              <h3 className="font-semibold">User Name</h3>
               <input
                 placeholder="User Name"
                 required={true}
@@ -37,7 +37,7 @@ export function Login() {
               />
             </div>
             <div className="field">
-              <h3>Password</h3>
+              <h3 className="font-semibold">Password</h3>
               <input
                 placeholder="password"
                 type="password"

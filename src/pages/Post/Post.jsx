@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { useParams } from "react-router";
 import {
   faArrowDown,
   faArrowUp,
@@ -5,8 +7,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FeedCard } from "../../components/FeedCard/FeedCard";
-import { useParams } from "react-router";
-import { useContext } from "react";
 import { DataContext } from "../../context/DataContext";
 export function Post() {
   const { postId } = useParams();

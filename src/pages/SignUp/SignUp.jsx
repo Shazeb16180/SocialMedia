@@ -20,7 +20,7 @@ export function SignUp() {
           <div className="login-card-logo">
             <img src="images/login.svg" alt="Loading" />
           </div>
-          <h1>Sign Up</h1>
+          <h1 className="text-3xl font-bold underline">Sign Up</h1>
           <form
             onSubmit={(e) => {
               e.preventDefault();
@@ -29,7 +29,7 @@ export function SignUp() {
           >
             <div className="field signup">
               <div>
-                <h3>First Name</h3>
+                <h3 className="font-semibold">First Name</h3>
                 <input
                   placeholder="First Name"
                   required={true}
@@ -39,7 +39,7 @@ export function SignUp() {
                 />
               </div>
               <div>
-                <h3>Last Name</h3>
+                <h3 className="font-semibold">Last Name</h3>
                 <input
                   placeholder="Last Name"
                   required={true}
@@ -50,7 +50,7 @@ export function SignUp() {
               </div>
             </div>
             <div className="field">
-              <h3>User Name Or Email</h3>
+              <h3 className="font-semibold">User Name Or Email</h3>
               <input
                 placeholder="example@example.com"
                 required={true}
@@ -60,7 +60,7 @@ export function SignUp() {
               />
             </div>
             <div className="field">
-              <h3>Password</h3>
+              <h3 className="font-semibold">Password</h3>
               <input
                 placeholder="password"
                 type="password"

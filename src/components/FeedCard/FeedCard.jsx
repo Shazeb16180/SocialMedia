@@ -11,12 +11,12 @@ import {
 } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
-import { disLikePost, likePost } from "../../services/likeDislikeService";
+import { disLikePost, likePost } from "../../services/postService";
 import { useContext } from "react";
 import { DataContext } from "../../context/DataContext";
 import { AuthContext } from "../../context/AuthContext";
-import { addBookMark, removeBookMark } from "../../services/bookMarkService";
-import { deletePost } from "../../services/addEditPostService";
+import { addBookMark, removeBookMark } from "../../services/postService";
+import { deletePost } from "../../services/postService";
 import { useNavigate } from "react-router";
 
 export function FeedCard({

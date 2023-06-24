@@ -1,7 +1,5 @@
-import { useContext } from "react";
 import { createContext, useState } from "react";
 import { useNavigate } from "react-router";
-import { DataContext } from "./DataContext";
 
 export const AuthContext = createContext();
 

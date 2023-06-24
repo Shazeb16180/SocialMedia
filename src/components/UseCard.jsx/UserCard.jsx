@@ -1,7 +1,5 @@
-import { useContext } from "react";
-import { followService } from "../../services/followUnfollowService";
-import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router";
+import { followService } from "../../services/userService";
 
 export function UserCard({ _id, username, avatarUrl, token, setUser }) {
   const navigate = useNavigate();

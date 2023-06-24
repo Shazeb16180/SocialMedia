@@ -1,5 +1,3 @@
-import { json } from "react-router";
-
 const uploadImage = async (image) => {
   const data = new FormData();
   data.append("file", image);
@@ -79,6 +77,76 @@ export async function deletePost(dispatch, _id, token) {
       const { posts } = await response.json();
       dispatch({ type: "POSTS", payload: posts });
     } else throw new Error("Error Creating Posts");
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export async function addBookMark(setUser, user, _id, token) {
+  try {
+    const response = await fetch(`/api/users/bookmark/${_id}`, {
+      method: "POST",
+      headers: {
+        authorization: token,
+      },
+    });
+    console.log(response);
+    if (response.status === 200) {
+      const { bookmarks } = await response.json();
+      //dispatch({ type: "BOOKMARKS", payload: bookmarks });
+
+      setUser({ ...user, bookmarks: bookmarks });
+    } else throw new Error("Error BookMarking");
+  } catch (error) {
+    console.error(error);
+  }
+}
+export async function removeBookMark(setUser, user, _id, token) {
+  try {
+    const response = await fetch(`/api/users/remove-bookmark/${_id}`, {
+      method: "POST",
+      headers: {
+        authorization: token,
+      },
+    });
+    if (response.status === 200) {
+      const { bookmarks } = await response.json();
+      //dispatch({ type: "BOOKMARKS", payload: bookmarks });
+      setUser({ ...user, bookmarks: bookmarks });
+    } else throw new Error("Error BookMarking");
+  } catch (error) {
+    console.error(error);
+  }
+}
+export async function likePost(dispatch, _id, token) {
+  try {
+    const response = await fetch(`/api/posts/like/${_id}`, {
+      method: "POST",
+      headers: {
+        authorization: token,
+      },
+    });
+    console.log(response);
+    if (response.status === 201) {
+      const { posts } = await response.json();
+      dispatch({ type: "POSTS", payload: posts });
+    } else throw new Error("Error in Like");
+  } catch (error) {
+    console.error(error);
+  }
+}
+export async function disLikePost(dispatch, _id, token) {
+  try {
+    const response = await fetch(`/api/posts/dislike/${_id}`, {
+      method: "POST",
+      headers: {
+        authorization: token,
+      },
+    });
+    if (response.status === 201) {
+      const { posts } = await response.json();
+      dispatch({ type: "POSTS", payload: posts });
+    } else throw new Error("Error in Like");
   } catch (error) {
     console.error(error);
   }

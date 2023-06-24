@@ -4,7 +4,6 @@ import { useContext } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import { AuthContext } from "../../context/AuthContext";
-import { getMyPosts } from "../../utils/utils";
 import { DataContext } from "../../context/DataContext";
 
 export function Account() {
@@ -13,14 +12,8 @@ export function Account() {
   const [showProfileDropdown, setShowProfileDropdown] = useState(false);
   const navigate = useNavigate();
   return (
-    <li
-      className=" relative "
-      //ref={profileDropdownRef}
-    >
-      <div
-        className="flex gap-1 flex-wrap items-center text-base border-l-2 border-primary-light pl-2"
-        //onClick={() => setShowProfileDropdown((prev) => !prev)}
-      >
+    <li className=" relative ">
+      <div className="flex gap-1 flex-wrap items-center text-base border-l-2 border-primary-light pl-2">
         <img
           src={user.avatarUrl}
           alt="Profile img"
@@ -34,7 +27,6 @@ export function Account() {
           className="cursor-pointer"
           color="white"
           onClick={() => {
-            // navigate(`/profile/${user.userHandler}`);
             setShowProfileDropdown(!showProfileDropdown);
           }}
         />
@@ -45,7 +37,6 @@ export function Account() {
             <li
               className="rounded hover:bg-white hover:text-black px-2 py-1 cursor-pointer"
               onClick={() => {
-                // navigate(`/profile/${user.userHandler}`);
                 setShowProfileDropdown(!showProfileDropdown);
                 navigate(`/profile/${user.username}`);
               }}
@@ -55,7 +46,6 @@ export function Account() {
             <li
               className="text-error rounded hover:bg-white hover:text-black px-2 py-1 cursor-pointer"
               onClick={() => {
-                //dispatch(handleLogout());
                 setShowProfileDropdown(!showProfileDropdown);
                 (() => {
                   localStorage.removeItem("login");
