@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import { AuthContext } from "../../context/AuthContext";
 import { DataContext } from "../../context/DataContext";
+import { toast } from "react-toastify";
 
 export function Account() {
   const { user, setUser, setToken } = useContext(AuthContext);
@@ -54,7 +55,7 @@ export function Account() {
                   setToken("");
                   dispatch({ type: "LOGOUT" });
                   navigate("/");
-                  console.log("Done");
+                  toast.success("Logged Out");
                 })();
               }}
             >

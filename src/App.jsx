@@ -1,5 +1,6 @@
-import { Route, Routes } from "react-router";
 import "./App.css";
+import "react-toastify/dist/ReactToastify.css";
+import { Route, Routes } from "react-router";
 import MockMan from "mockman-js";
 import { Login } from "./pages/Login/Login";
 import { SignUp } from "./pages/SignUp/SignUp";
@@ -10,10 +11,21 @@ import { Profile } from "./pages/Profile/Profile";
 import { Protection } from "./components/Protection/Protection";
 import { Skeleton } from "./components/Skeleton/Skeleton";
 import { BookMarks } from "./pages/Bookmarks/BookMarks";
+import { Slide, ToastContainer } from "react-toastify";
 
 function App() {
   return (
     <div>
+      <ToastContainer
+        position="bottom-center"
+        autoClose="1000"
+        hideProgressBar="false"
+        closeOnClick="true"
+        pauseOnHover="true"
+        draggable="true"
+        transition={Slide}
+        style={{ fontWeight: "500", fontSize: "1rem" }}
+      />
       <NewPost />
       <Routes>
         <Route path="/login" element={<Login />} />

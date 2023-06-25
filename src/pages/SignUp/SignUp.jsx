@@ -2,6 +2,7 @@ import "../Login/Login.css";
 import { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
+import { toast } from "react-toastify";
 export function SignUp() {
   const { signUpUserHandler } = useContext(AuthContext);
   const [formData, setFormData] = useState({
@@ -11,7 +12,7 @@ export function SignUp() {
     password: "",
   });
   const signUpHandler = (data) => {
-    signUpUserHandler(data);
+    signUpUserHandler(data, toast);
   };
   return (
     <div className="login-container">

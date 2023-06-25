@@ -9,10 +9,8 @@ import {
 import { useNavigate } from "react-router";
 import { useContext } from "react";
 import { DataContext } from "../../context/DataContext";
-import { AuthContext } from "../../context/AuthContext";
 export function NavBar() {
-  const { state, dispatch } = useContext(DataContext);
-  const { user } = useContext(AuthContext);
+  const { dispatch } = useContext(DataContext);
   const navigate = useNavigate();
   return (
     <div className="bg-primary whitespace-pre ">

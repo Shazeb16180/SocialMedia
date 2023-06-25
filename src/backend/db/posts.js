@@ -19,7 +19,7 @@ export const posts = [
     comments: [
       {
         _id: "okzxcf",
-        username: "janedoe",
+        username: "stefan",
         text: "I agree!! Feels like we should go for outing. What say?",
         votes: {
           upvotedBy: [],
@@ -27,30 +27,30 @@ export const posts = [
         },
       },
     ],
-    username: "romabulani",
+    username: "kol",
     createdAt: "2022-01-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },
   {
     _id: "siFFxfYI1s",
-    content: "Started my Baking journey! Look what I made.",
+    content: "Started my BreakFast !Please stop.",
     mediaURL:
-      "https://res.cloudinary.com/dtrjdcrme/video/upload/v1652188886/upload-socialmedia/oikev6eomsgahnvxcijd.mp4",
+      "https://res.cloudinary.com/shazeb/image/upload/f_auto,q_auto/v1/porfilepics/lgacmz4l0ccykrjfka7w",
     likes: {
       likeCount: 0,
       likedBy: [],
       dislikedBy: [],
     },
     comments: [],
-    username: "carlsmith",
+    username: "klaus",
     createdAt: "2022-05-21T10:55:06+05:30",
     updatedAt: formatDate(),
   },
   {
     _id: "3XHvLP1fg",
-    content: "I made this cake for my friend's birthday. Check it out",
+    content: "I came for you,Thanks me at the end.",
     mediaURL:
-      "https://res.cloudinary.com/dtrjdcrme/image/upload/v1652188492/upload-socialmedia/cakegif_q11mfm.webp",
+      "https://res.cloudinary.com/shazeb/image/upload/f_auto,q_auto/v1/porfilepics/ldyezp3mupbuolc7jvyk",
     likes: {
       likeCount: 1,
       likedBy: [],
@@ -59,7 +59,7 @@ export const posts = [
     comments: [
       {
         _id: "6nImWvImxo",
-        username: "johndoe",
+        username: "klaus",
         text: "That's mouth watering! Could you make one for my Birthday as well?",
         votes: {
           upvotedBy: [],
@@ -67,7 +67,7 @@ export const posts = [
         },
       },
     ],
-    username: "janedoe",
+    username: "fin",
     createdAt: "2022-02-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },
@@ -88,9 +88,9 @@ export const posts = [
   },
   {
     _id: "3XHvLP9kC",
-    content: "Yayy! Its my Birthday Today. Made this cake for myself!",
+    content: "Omg!What did you Guys Have Done",
     mediaURL:
-      "https://res.cloudinary.com/dtrjdcrme/image/upload/v1647014336/ecommerce/chocolatecake4.webp",
+      "https://res.cloudinary.com/shazeb/image/upload/f_auto,q_auto/v1/porfilepics/wt8xzccmwif8h20g9vxx",
     likes: {
       likeCount: 2,
       likedBy: [],
@@ -99,7 +99,7 @@ export const posts = [
     comments: [
       {
         _id: "EO7iOPN9n8",
-        username: "carlsmith",
+        username: "kol",
         text: "Happy Birthday! Enjoy your Day!!",
         votes: {
           upvotedBy: [],
@@ -108,7 +108,7 @@ export const posts = [
       },
       {
         _id: "QK52wf6HI1",
-        username: "janedoe",
+        username: "klaus",
         text: "Wow! Looks Amazzing! Happy Birthday!",
         votes: {
           upvotedBy: [],
@@ -168,7 +168,7 @@ export const posts = [
     _id: "IyUlYXTrzZ",
     content: "Who's up for Pineapple Pastry?",
     mediaURL:
-      "https://res.cloudinary.com/dtrjdcrme/image/upload/v1647014828/ecommerce/pineapplemuffin1.webp",
+      "https://res.cloudinary.com/shazeb/image/upload/f_auto,q_auto/v1/porfilepics/irxs71sje8rlbkhwrqxt",
     likes: {
       likeCount: 10,
       likedBy: [],
@@ -185,7 +185,7 @@ export const posts = [
         },
       },
     ],
-    username: "romabulani",
+    username: "fin",
     createdAt: "2022-04-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },
@@ -202,7 +202,7 @@ export const posts = [
     comments: [
       {
         _id: "6fgd534s",
-        username: "janedoe",
+        username: "klaus",
         text: "Yes! I am also learning from there!",
         votes: {
           upvotedBy: [],
@@ -210,7 +210,7 @@ export const posts = [
         },
       },
     ],
-    username: "alexmaxwell",
+    username: "stefan",
     createdAt: "2022-04-12T10:55:06+05:30",
     updatedAt: formatDate(),
   },
@@ -226,7 +226,7 @@ export const posts = [
     comments: [
       {
         _id: "unImWvIzbf",
-        username: "romabulani",
+        username: "kol",
         text: "So True!!",
         votes: {
           upvotedBy: [],
@@ -234,7 +234,7 @@ export const posts = [
         },
       },
     ],
-    username: "sophiajones",
+    username: "damon",
     createdAt: "2022-05-15T10:55:06+05:30",
     updatedAt: formatDate(),
   },
@@ -249,7 +249,7 @@ export const posts = [
       dislikedBy: [],
     },
     comments: [],
-    username: "romabulani",
+    username: "alaric",
     createdAt: "2022-02-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },
@@ -265,7 +265,7 @@ export const posts = [
       dislikedBy: [],
     },
     comments: [],
-    username: "johndoe",
+    username: "klaus",
     createdAt: "2022-01-12T10:55:06+05:30",
     updatedAt: formatDate(),
   },
@@ -280,7 +280,7 @@ export const posts = [
       dislikedBy: [],
     },
     comments: [],
-    username: "alexmaxwell",
+    username: "alaric",
     createdAt: "2022-01-26T10:55:06+05:30",
     updatedAt: formatDate(),
   },
@@ -296,22 +296,23 @@ export const posts = [
       dislikedBy: [],
     },
     comments: [],
-    username: "carlsmith",
+    username: "elijah",
     createdAt: "2022-03-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },
 
   {
     _id: "l9pedEMjZS",
-    content: "If you don’t risk anything, you risk even more.",
-    mediaURL: "",
+    content: "Here is the trailer of my Series.",
+    mediaURL:
+      "https://res.cloudinary.com/shazeb/video/upload/v1687605484/porfilepics/vuo7crb1iyex2nkaiqlk.mp4",
     likes: {
       likeCount: 6,
       likedBy: [],
       dislikedBy: [],
     },
     comments: [],
-    username: "sophiajones",
+    username: "klaus",
     createdAt: "2022-04-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },
@@ -326,7 +327,7 @@ export const posts = [
       dislikedBy: [],
     },
     comments: [],
-    username: "romabulani",
+    username: "stefan",
     createdAt: "2022-04-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },
@@ -342,7 +343,7 @@ export const posts = [
       dislikedBy: [],
     },
     comments: [],
-    username: "carlsmith",
+    username: "elijah",
     createdAt: "2022-01-14T10:55:06+05:30",
     updatedAt: formatDate(),
   },
@@ -358,7 +359,7 @@ export const posts = [
       dislikedBy: [],
     },
     comments: [],
-    username: "janedoe",
+    username: "fin",
     createdAt: "2022-05-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },
@@ -374,7 +375,7 @@ export const posts = [
       dislikedBy: [],
     },
     comments: [],
-    username: "alexmaxwell",
+    username: "stefan",
     createdAt: "2022-02-14T10:55:06+05:30",
     updatedAt: formatDate(),
   },
@@ -390,7 +391,7 @@ export const posts = [
       dislikedBy: [],
     },
     comments: [],
-    username: "romabulani",
+    username: "damon",
     createdAt: "2022-01-15T10:55:06+05:30",
     updatedAt: formatDate(),
   },
@@ -406,7 +407,7 @@ export const posts = [
       dislikedBy: [],
     },
     comments: [],
-    username: "sophiajones",
+    username: "elijah",
     createdAt: "2022-05-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },
@@ -421,7 +422,7 @@ export const posts = [
       dislikedBy: [],
     },
     comments: [],
-    username: "janedoe",
+    username: "klaus",
     createdAt: "2022-02-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },

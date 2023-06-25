@@ -9,6 +9,7 @@ import { DataContext } from "../../context/DataContext";
 import { useState } from "react";
 import { addPost, editPost } from "../../services/postService";
 import { AuthContext } from "../../context/AuthContext";
+import { toast } from "react-toastify";
 
 export function NewPost() {
   const { user, token } = useContext(AuthContext);
@@ -16,12 +17,13 @@ export function NewPost() {
   const [showEmoji, setShowEmoji] = useState(false);
   const postHandler = () =>
     state.postModal.action === "add"
-      ? addPost(dispatch, state.postModal.tempPost, token)
+      ? addPost(dispatch, state.postModal.tempPost, token, toast)
       : editPost(
           dispatch,
           state.postModal.tempPost,
           state.postModal.tempPost._id,
-          token
+          token,
+          toast
         );
   const emojis = [
     {

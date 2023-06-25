@@ -1,13 +1,14 @@
 import "./Login.css";
-import { NavLink, useLocation } from "react-router-dom";
 import { useContext, useState } from "react";
+import { toast } from "react-toastify";
+import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
+
 export function Login() {
   const { loginUserHandler } = useContext(AuthContext);
   const [formData, setFormData] = useState({ userName: "", password: "" });
-  const location = useLocation();
   const loginHandler = ({ userName, password }) => {
-    loginUserHandler(userName, password, location?.state?.pathname || "/");
+    loginUserHandler(userName, password, toast);
   };
   return (
     <div className="login-container">

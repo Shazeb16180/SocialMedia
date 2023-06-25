@@ -22,7 +22,7 @@ const uploadImage = async (image) => {
   }
 };
 
-export async function addPost(dispatch, postData, token) {
+export async function addPost(dispatch, postData, token, toast) {
   if (postData.mediaURL.length > 0) {
     postData.mediaURL = await uploadImage(postData.mediaURL);
   }
@@ -38,13 +38,14 @@ export async function addPost(dispatch, postData, token) {
     if (response.status === 201) {
       const { posts } = await response.json();
       dispatch({ type: "POSTS", payload: posts });
-      // dispatch({})
+      toast.success("Post Added");
     } else throw new Error("Error Creating Posts");
   } catch (error) {
+    toast.error(error);
     console.error(error);
   }
 }
-export async function editPost(dispatch, post, _id, token) {
+export async function editPost(dispatch, post, _id, token, toast) {
   if (post.mediaURL.length > 0 && !post.mediaURL.includes("cloudinary")) {
     post.mediaURL = await uploadImage(post.mediaURL);
   }
@@ -56,16 +57,17 @@ export async function editPost(dispatch, post, _id, token) {
       },
       body: JSON.stringify({ postData: post }),
     });
-    console.log(response);
     if (response.status === 201) {
       const { posts } = await response.json();
       dispatch({ type: "POSTS", payload: posts });
-    } else throw new Error("Error Creating Posts");
+      toast.success("Post Updated");
+    } else throw new Error("Error Updating Posts");
   } catch (error) {
+    toast.error(error);
     console.error(error);
   }
 }
-export async function deletePost(dispatch, _id, token) {
+export async function deletePost(dispatch, _id, token, toast) {
   try {
     const response = await fetch(`/api/posts/${_id}`, {
       method: "DELETE",
@@ -76,13 +78,15 @@ export async function deletePost(dispatch, _id, token) {
     if (response.status === 201) {
       const { posts } = await response.json();
       dispatch({ type: "POSTS", payload: posts });
-    } else throw new Error("Error Creating Posts");
+      toast.success("Post Deleted");
+    } else throw new Error("Error Deleting Posts");
   } catch (error) {
+    toast.error(error);
     console.error(error);
   }
 }
 
-export async function addBookMark(setUser, user, _id, token) {
+export async function addBookMark(setUser, user, _id, token, toast) {
   try {
     const response = await fetch(`/api/users/bookmark/${_id}`, {
       method: "POST",
@@ -96,12 +100,14 @@ export async function addBookMark(setUser, user, _id, token) {
       //dispatch({ type: "BOOKMARKS", payload: bookmarks });
 
       setUser({ ...user, bookmarks: bookmarks });
+      toast.success("Post Bookmarked");
     } else throw new Error("Error BookMarking");
   } catch (error) {
+    toast.error(error);
     console.error(error);
   }
 }
-export async function removeBookMark(setUser, user, _id, token) {
+export async function removeBookMark(setUser, user, _id, token, toast) {
   try {
     const response = await fetch(`/api/users/remove-bookmark/${_id}`, {
       method: "POST",
@@ -113,8 +119,10 @@ export async function removeBookMark(setUser, user, _id, token) {
       const { bookmarks } = await response.json();
       //dispatch({ type: "BOOKMARKS", payload: bookmarks });
       setUser({ ...user, bookmarks: bookmarks });
+      toast.success("Post Removed From BookMark");
     } else throw new Error("Error BookMarking");
   } catch (error) {
+    toast.error(error);
     console.error(error);
   }
 }

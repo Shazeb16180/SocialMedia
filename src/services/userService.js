@@ -10,7 +10,7 @@ export async function getAllUsers(dispatch) {
   }
 }
 
-export async function editUser(setUser, userData, token) {
+export async function editUser(setUser, userData, token, toast) {
   try {
     const response = await fetch("/api/users/edit", {
       method: "POST",
@@ -23,8 +23,10 @@ export async function editUser(setUser, userData, token) {
     if (response.status === 201) {
       const { user } = await response.json();
       setUser(user);
+      toast.success("User Edited");
     } else throw new Error("Error in Getting User");
   } catch (error) {
+    toast.error(error);
     console.error(error);
   }
 }
