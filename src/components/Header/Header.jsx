@@ -68,12 +68,7 @@ export function Header() {
             <FontAwesomeIcon icon={faHome} />
           </li>
 
-          <Account
-          /* dispatch={dispatch}
-            setShowProfileDropdown={setShowProfileDropdown}
-            showProfileDropdown={showProfileDropdown}
-            user={user}*/
-          />
+          <Account />
         </ul>
       </div>
       <div
@@ -84,8 +79,9 @@ export function Header() {
         <div className="bg-white w-52 p-2 border-2 border-black border-solid">
           {state.users
             .filter(({ username }) => username.includes(searchData.data))
-            .map((user) => (
+            .map((user, index) => (
               <div
+                key={index}
                 onClick={() => {
                   setSearchData({ visibile: false, data: "" });
                   navigate(`/profile/${user.username}`);

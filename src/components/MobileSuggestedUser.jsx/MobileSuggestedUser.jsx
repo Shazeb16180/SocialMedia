@@ -15,8 +15,9 @@ export function MobileSuggestedUser() {
   const unFollowers = getUnFollowedUsers(user, state.users);
   return (
     <div className="flex gap-2 p-2 w-full flex-shrink-0  overflow-x-scroll md:hidden border-2  border-primary">
-      {unFollowers.map(({ _id, username, avatarUrl }) => (
+      {unFollowers.map(({ _id, username, avatarUrl }, index) => (
         <UserCard
+          key={index}
           _id={_id}
           username={username}
           avatarUrl={avatarUrl}

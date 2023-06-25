@@ -96,7 +96,6 @@ export function NewPost() {
               rows={5}
               placeholder="What's in your mind"
               className="grow resize-none p-2 border-none focus:outline-none"
-              defaultValue={state.postModal.tempPost.content}
               value={state.postModal.tempPost.content}
               onChange={(event) => {
                 dispatch({

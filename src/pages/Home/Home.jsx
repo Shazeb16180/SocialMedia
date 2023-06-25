@@ -74,16 +74,12 @@ export function Home() {
         <MobileSuggestedUser />
         {temproryPosts.length > 0 ? (
           temproryPosts.map(
-            ({
-              _id,
-              username,
-              content,
-              mediaURL,
-              likes,
-              comments,
-              createdAt,
-            }) => (
+            (
+              { _id, username, content, mediaURL, likes, comments, createdAt },
+              index
+            ) => (
               <FeedCard
+                key={index}
                 _id={_id}
                 username={username}
                 content={content}
