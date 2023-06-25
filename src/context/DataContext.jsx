@@ -24,6 +24,17 @@ export function DataContextProvider({ children }) {
         console.log(error);
       }
     })();
+    (async () => {
+      try {
+        const response = await fetch("/api/users");
+        if (response.status === 200) {
+          const { users } = await response.json();
+          dispatch({ type: "USERS", payload: users });
+        } else throw new Error("Error in Getting Users");
+      } catch (error) {
+        console.error(error);
+      }
+    })();
   }, [token]);
   return (
     <DataContext.Provider value={{ state, dispatch, loader, setLoader }}>

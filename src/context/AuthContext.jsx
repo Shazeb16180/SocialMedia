@@ -9,7 +9,7 @@ export function AuthContextProvider({ children }) {
   const localStorageUser = JSON.parse(localStorage.getItem("user"));
   const [user, setUser] = useState(localStorageUser?.user);
   const navigate = useNavigate();
-  const loginUserHandler = async (userName, password, toast) => {
+  const loginUserHandler = async (userName, password, toast, location) => {
     if (userName !== "" && password !== "") {
       try {
         const response = await fetch("/api/auth/login", {
@@ -28,7 +28,7 @@ export function AuthContextProvider({ children }) {
           );
           setUser(foundUser);
           localStorage.setItem("user", JSON.stringify({ user: foundUser }));
-          navigate("/");
+          navigate(location.state.pathname || "/");
           toast.success("Logged  In");
         } else throw new Error(response.statusText);
       } catch (error) {
