@@ -134,7 +134,6 @@ export async function likePost(dispatch, _id, token) {
         authorization: token,
       },
     });
-    console.log(response);
     if (response.status === 201) {
       const { posts } = await response.json();
       dispatch({ type: "POSTS", payload: posts });
