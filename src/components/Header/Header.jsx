@@ -32,7 +32,10 @@ export function Header() {
           <input
             value={searchData.data}
             onChange={(e) => {
-              setSearchData({ data: e.target.value, visibile: true });
+              setSearchData({
+                data: e.target.value.toLowerCase(),
+                visibile: true,
+              });
             }}
             className="outline-none text-black w-20 md:w-80"
           />
