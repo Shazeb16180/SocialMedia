@@ -28,7 +28,7 @@ export function AuthContextProvider({ children }) {
           );
           setUser(foundUser);
           localStorage.setItem("user", JSON.stringify({ user: foundUser }));
-          navigate(location.state.pathname || "/");
+          navigate(location?.state?.pathname || "/");
           toast.success("Logged  In");
         } else throw new Error(response.statusText);
       } catch (error) {
