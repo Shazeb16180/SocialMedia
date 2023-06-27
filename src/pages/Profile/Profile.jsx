@@ -98,8 +98,9 @@ export function Profile() {
                   editProps.nestedView ? "flex" : "hidden"
                 } absolute  flex-wrap gap-4 top-10 left-8 bg-transparent w-48 rounded-md border-2 border-primary border-solid `}
               >
-                {avatars.map((url) => (
+                {avatars.map((url, index) => (
                   <img
+                    key={index}
                     src={`/avatar/${url}`}
                     className="w-12 h-12 object-cover rounded-full"
                     onClick={() => {
@@ -292,16 +293,20 @@ export function Profile() {
           </div>
           {tempPost.length > 0 ? (
             tempPost.map(
-              ({
-                _id,
-                username,
-                content,
-                mediaURL,
-                likes,
-                comments,
-                createdAt,
-              }) => (
+              (
+                {
+                  _id,
+                  username,
+                  content,
+                  mediaURL,
+                  likes,
+                  comments,
+                  createdAt,
+                },
+                index
+              ) => (
                 <FeedCard
+                  key={index}
                   _id={_id}
                   username={username}
                   content={content}

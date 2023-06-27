@@ -11,20 +11,22 @@ import { DataContext } from "../../context/DataContext";
 export function Post() {
   const { postId } = useParams();
   const { state } = useContext(DataContext);
-  const { _id, username, content, mediaURL, likes, comments, createdAt } =
-    state.posts.find(({ _id }) => _id === postId);
+  const post = state.posts.find(({ _id }) => _id === postId);
+
   return (
     <div className="flex grow justify-center p-4 border-2 border-solid border-black">
       <div className="flex flex-col gap-8 w-full  md:w-2/5">
-        <FeedCard
-          _id={_id}
-          username={username}
-          content={content}
-          mediaURL={mediaURL}
-          likes={likes}
-          comments={comments}
-          createdAt={createdAt}
-        />
+        {post && (
+          <FeedCard
+            _id={post._id}
+            username={post.username}
+            content={post.content}
+            mediaURL={post.mediaURL}
+            likes={post.likes}
+            comments={post.comments}
+            createdAt={post.createdAt}
+          />
+        )}
         <div className="flex flex-col gap-2 p-4 h-96 break-word overflow-y-auto border-2 border-black border-solid">
           <div className="flex">
             <img
@@ -82,7 +84,7 @@ export function Post() {
               <svg
                 stroke="currentColor"
                 fill="currentColor"
-                stroke-width="0"
+                strokeWidth="0"
                 viewBox="0 0 512 512"
                 height="1em"
                 width="1em"
